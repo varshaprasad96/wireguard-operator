@@ -18,7 +18,6 @@ package controllers
 
 import (
 	"context"
-	"fmt"
 
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -65,7 +64,7 @@ func (r *WideguardReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 		return ctrl.Result{}, err
 	}
 
-	fmt.Println(wideguard.Spec.ExternalDNS.Enabled)
+	ctrllog.Info("spec values", "wideguard.Spec.ExternalDNS.Enabled", wideguard.Spec.ExternalDNS.Enabled)
 
 	return ctrl.Result{}, nil
 }
